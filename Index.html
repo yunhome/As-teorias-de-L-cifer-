@@ -1,3 +1,7 @@
+from IPython.display import display, HTML
+
+# HTML com botões para expandir/collapse teorias e textos completos
+html_with_expandable_theories = """
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -10,7 +14,6 @@
       font-family: 'Georgia', serif;
       background-color: #0d0d0d;
       color: #e8e6e3;
-      background-image: linear-gradient(to bottom, #0d0d0d, #1a0a0a);
     }
 
     header {
@@ -33,19 +36,33 @@
 
     .theory {
       max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
+      margin: 30px auto;
       background: #1a1a1a;
       border-left: 5px solid #990000;
       box-shadow: 0 0 10px #000;
     }
 
-    .theory h2 {
+    .theory button {
+      width: 100%;
+      padding: 15px;
+      font-size: 1.1em;
+      text-align: left;
+      background-color: #1a1a1a;
       color: #e60000;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      border-bottom: 1px solid #990000;
     }
 
-    .theory p {
-      line-height: 1.6;
+    .theory button:hover {
+      background-color: #2a0a0a;
+    }
+
+    .theory-content {
+      display: none;
+      padding: 20px;
+      color: #ddd;
     }
 
     footer {
@@ -64,23 +81,46 @@
     <p>Descubra os mistérios por trás da série Lúcifer</p>
   </header>
 
-  <section class="theory">
-    <h2>👁️ Lúcifer é o verdadeiro salvador?</h2>
-    <p>Muitos fãs acreditam que a jornada de redenção do Diabo mostra que ele, e não Deus, é o verdadeiro salvador da humanidade. Ao aceitar sentimentos humanos e proteger o livre-arbítrio, ele estaria cumprindo um papel messiânico invertido.</p>
-  </section>
+  <div class="theory">
+    <button onclick="toggleContent(this)">🌟 Ella Lopez é Deus disfarçado?</button>
+    <div class="theory-content">
+      <p>Ella sempre foi a personagem mais espiritual e cheia de fé da série. Mesmo cercada de figuras celestiais e infernais, ela continuava acreditando sem nunca ter tido uma “prova direta”.</p>
+      <p>Alguns fãs acreditam que isso é justamente o que Deus queria testar: a fé pura. Sua conexão com ciência e religião, a ausência de influência direta do sobrenatural e sua importância para o grupo indicam que talvez Ella seja a presença divina... observando todos sem interferir visivelmente.</p>
+      <p>Ela representa o equilíbrio entre razão e crença. Sua bondade extrema também a diferencia do resto do elenco, o que reforça ainda mais a teoria.</p>
+    </div>
+  </div>
 
-  <section class="theory">
-    <h2>🕯️ Chloe foi escolhida para domar o Diabo?</h2>
-    <p>Algumas teorias sugerem que Chloe foi criada por Deus justamente para ser o elo entre Lúcifer e a humanidade. Seu “poder de anulá-lo” pode representar a fragilidade dos deuses frente ao amor genuíno.</p>
-  </section>
+  <div class="theory">
+    <button onclick="toggleContent(this)">🧠 Deus manipulou tudo o tempo todo</button>
+    <div class="theory-content">
+      <p>Essa teoria afirma que tudo — desde a queda de Lúcifer até os detalhes da vida de Chloe — foi planejado por Deus. Ele teria criado um roteiro para todos os personagens, permitindo apenas a ilusão de livre-arbítrio.</p>
+      <p>O fato de Deus sempre sumir nos momentos mais importantes seria uma forma de observar sem interferir, como um escritor assistindo sua própria história. Inclusive, a ideia de "Deus escritor" se confirma literalmente na série.</p>
+      <p>Isso também explicaria por que tantos eventos parecem coincidentes demais: o nascimento de Chloe, a presença de Trixie, o envolvimento da polícia, e até mesmo o crescimento emocional de Lúcifer.</p>
+    </div>
+  </div>
 
-  <section class="theory">
-    <h2>⛓️ Maze é uma metáfora para o desejo humano</h2>
-    <p>Enquanto Lúcifer representa o orgulho e Chloe representa a fé, Maze pode simbolizar o desejo carnal, a dor da rejeição e a busca constante por identidade. Alguns acreditam que ela representa Lilith reinterpretada.</p>
-  </section>
+  <div class="theory">
+    <button onclick="toggleContent(this)">🕳️ O Lux é um portal para o Inferno</button>
+    <div class="theory-content">
+      <p>O Lux nunca foi apenas um clube. Sempre que algo sobrenatural acontecia, ele estava envolvido. A teoria diz que o clube é, na verdade, um ponto de energia entre dimensões — um portal disfarçado onde o Inferno toca a Terra.</p>
+      <p>Lúcifer o construiu como uma extensão de si mesmo, por isso ele se sente “em casa”. O porão do Lux, raramente mostrado, seria onde a conexão com o Inferno se concentra. Maze, demônios e até celestiais aparecem lá com frequência incomum.</p>
+      <p>Talvez seja por isso que tantos eventos estranhos giram em torno do local. É mais do que um cenário: é um personagem.</p>
+    </div>
+  </div>
+
+  <script>
+    function toggleContent(button) {
+      var content = button.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    }
+  </script>
 
   <footer>
-    © 2025 - Fã-site de Teorias sobre Lúcifer | Criado por Mika
+    © 2025 - Fã-site de Teorias sobre Lúcifer | Criado por uma fã da série 
   </footer>
 </body>
 </html>
